@@ -1,0 +1,38 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: lightblue;
+}
+
+table{
+    width: 60%;
+    margin: auto;
+    margin-top: 10px;
+    border: 1px solid;
+}
+
+table, tr, th, td{
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+
+header{
+    background-color: black;
+    padding: 8px 30px;
+}
+header nav a{
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    padding: 8px 13px;
+}
+
+header nav a:hover{
+    color: lightgrey;
+    font-size: 20px;
+}
+
+input{
+    display: block;
+}
