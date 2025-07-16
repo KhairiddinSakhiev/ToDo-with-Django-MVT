@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Edit task{% endblock title %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title" value="{{task.title}}" required>
+    <label for="description">Description</label>
+    <input type="text" name="description" id="description" value="{{task.description}}">
+    <label for="due_date">Due date</label>
+    <input type="date" name="due_date" id="due_date" value="{{task.due_date}}">
+    <label for="user">User</label>
+    <select name="user" id="user">
+        {% for user in users %}
+          <option value="{{user.id}}">{{user.username}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Save">
+</form>
+{% endblock content %}
