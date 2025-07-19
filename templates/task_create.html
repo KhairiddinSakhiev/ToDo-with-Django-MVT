@@ -9,12 +9,6 @@
     <input type="text" name="description" id="description" value="{{description}}">
     <label for="due_date">Due date</label>
     <input type="date" name="due_date" id="due_date" value="{{due_date}}">
-    <label for="user">User</label>
-    <select name="user" id="user">
-        {% for user in users %}
-          <option value="{{user.id}}">{{user.username}}</option>
-        {% endfor %}
-    </select>
     <input type="submit" value="Save">
 </form>
 {% endblock content %}
