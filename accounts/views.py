@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from django.contrib.auth.models import User
+from .models import CustomUser as User
 from django.contrib.auth import login, logout, authenticate
 
 
@@ -7,23 +7,21 @@ def register_view(request):
     if request.method == "GET":
         return render(request, 'auth/register.html')
     elif request.method == "POST":
-        username = request.POST.get('username', False)
         email = request.POST.get('email', False)
         password = request.POST.get('password', False)
         confirm_password = request.POST.get('confirm_password', False)
-        if not username or not email or not password or not confirm_password:
+        if not email or not password or not confirm_password:
             return HttpResponse('Pleas fill all inputs')
         if not password == confirm_password:
             return render(request, 'auth/register.html')
-        user = User.objects.filter(username=username).exists()
+        user = User.objects.filter(email=email).exists()
         if user:
             return HttpResponse("User already exists")
         new_user = User.objects.create_user(
-            username=username,
-            email=email
+            email=email,
+            password=password
         )
-        new_user.set_password(password)
-        new_user.save()
+        
         return redirect('login')
     
 

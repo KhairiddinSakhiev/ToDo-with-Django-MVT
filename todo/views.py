@@ -4,6 +4,9 @@ from .models import *
 
 def task_list_view(request):
     if request.method == "GET":
+        print(request.user)
+        if str(request.user) == "AnonymousUser":
+            return redirect("login")
         tasks = Task.objects.filter(user=request.user).order_by("-id")
         search = request.GET.get("search", False)
         if search:
