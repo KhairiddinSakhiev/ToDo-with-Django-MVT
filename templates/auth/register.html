@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Register user{% endblock title %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password">
+    <label for="confirm_password">Confirm password</label>
+    <input type="password" name="confirm_password" id="confirm_password">
+    <input type="submit" value="Register">
+</form>
+{% endblock content %}

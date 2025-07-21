@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 {% block title %} Home {% endblock title %}
 {% block content %}
-  
+  <form method="get">
+    {% csrf_token %}
+    <input type="search" name="search">
+    <input type="checkbox" name="is_completed">
+    <input type="date" name="due_date">
+    <input type="submit" value="filter">
+  </form>
     <table>
         <tr>
             <th>ID</th>
@@ -23,6 +29,9 @@
             <td> 
                 <a href="{% url 'task_edit' task.id %}">Edit</a>
                 <a href="{% url 'task_delete' task.id %}">Delete</a>
+                {% if not task.is_completed %}
+                    <a href="{% url 'task_complete' task.id %}">Complete</a>
+                {% endif %}
             </td>
         </tr>
     {% endfor %}    

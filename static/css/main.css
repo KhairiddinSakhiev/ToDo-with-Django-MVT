@@ -3,6 +3,13 @@ body{
     margin: 0;
     background-color: lightblue;
 }
+a, p{
+    color: white;
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+    display: inline-block;
+}
 
 table{
     width: 60%;
@@ -20,6 +27,8 @@ table, tr, th, td{
 header{
     background-color: black;
     padding: 8px 30px;
+    display: flex;
+    justify-content: space-between;
 }
 header nav a{
     text-decoration: none;

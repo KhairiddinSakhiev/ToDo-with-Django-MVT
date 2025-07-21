@@ -1,22 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import User
 from datetime import timezone, datetime
+from accounts.models import CustomUser as User
 
-
-class UserProfile(models.Model):
-    user = models.OneToOneField(User,related_name="user_profile", on_delete=models.CASCADE)
-    phone_number = models.CharField(max_length=13)
-    image = models.ImageField()
-    bio = models.TextField()
-
-    def __str__(self):
-        return self.user.username + " profile"
-    
-    class Meta:
-        db_table = 'user_profiles'
-        managed = True
-        verbose_name = 'UserProfile'
-        verbose_name_plural = 'UserProfiles'
 
 
 class Task(models.Model):

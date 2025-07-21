@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Login user{% endblock title %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {% if error %}
+      <p style="color: red; display: block;">{{error}}</p>
+    {% endif %}
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" value="{{username}}">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password">
+    <input type="submit" value="Login">
+</form>
+{% endblock content %}
